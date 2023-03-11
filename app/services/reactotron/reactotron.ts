@@ -100,10 +100,8 @@ export function setupReactotron(customConfig: ReactotronConfig = {}) {
       })
     }
 
-    // ignore some chatty `mobx-state-tree` actions
     const RX = /postProcessSnapshot|@APPLY_SNAPSHOT/
 
-    // hookup mobx-state-tree middleware
     Reactotron.use(
       mst({
         filter: (event) => RX.test(event.name) === false,

@@ -23,6 +23,7 @@
     "bundle:android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res",
     "release:ios": "echo 'Not implemented yet: release:ios. Use Xcode. More info: https://reactnative.dev/docs/next/publishing-to-app-store'",
     "release:android": "cd android && rm -rf app/src/main/res/drawable-* && ./gradlew assembleRelease && cd - && echo 'APK generated in ./android/app/build/outputs/apk/release/app-release.apk'",
+    "release:android-win": "cmd.exe /c \"cd android && npx rimraf app/src/main/res/drawable && .\\gradlew assembleRelease && echo APK generated in ./android/app/build/outputs/apk/release/app-release.apk\"",
     "clean": "npx react-native-clean-project",
     "clean-all": "npx react-native clean-project-auto",
     "expo:start": "expo start",
@@ -36,7 +37,6 @@
     "react-error-overlay": "6.0.9"
   },
   "dependencies": {
-    "@craftzdog/react-native-buffer": "^6.0.5",
     "@ethersproject/shims": "^5.7.0",
     "@expo-google-fonts/space-grotesk": "^0.2.2",
     "@expo/webpack-config": "^0.17.2",
@@ -66,7 +66,6 @@
     "i18n-js": "3.9.2",
     "react": "18.1.0",
     "react-native": "0.70.5",
-    "react-native-bip39": "^2.3.0",
     "react-native-bootsplash": "4.3.2",
     "react-native-dotenv": "^3.4.8",
     "react-native-gesture-handler": "~2.8.0",
@@ -127,6 +126,7 @@
     "react-native-web": "~0.18.7",
     "reactotron-core-client": "^2.8.10",
     "regenerator-runtime": "^0.13.4",
+    "rimraf": "^4.4.0",
     "ts-jest": "26",
     "typescript": "^4.6.3",
     "webpack": "4",
