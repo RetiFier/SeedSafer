@@ -4,6 +4,8 @@ import App from "./app/app.tsx"
 import React from "react"
 import { registerRootComponent } from "expo"
 import * as SplashScreen from "expo-splash-screen"
+import { Buffer } from "buffer"
+global.Buffer = Buffer
 
 SplashScreen.preventAutoHideAsync()
 

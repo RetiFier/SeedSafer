@@ -16,9 +16,7 @@ import { Platform } from "react-native"
 import { Reactotron } from "./reactotronClient"
 import { ArgType } from "reactotron-core-client"
 import AsyncStorage from "@react-native-async-storage/async-storage"
-import { onSnapshot } from "mobx-state-tree"
 import { mst } from "reactotron-mst"
-import { RootStore } from "../../models/RootStore"
 import { clear } from "../../utils/storage"
 import { ReactotronConfig, DEFAULT_REACTOTRON_CONFIG } from "./reactotronConfig"
 import { goBack, resetRoot, navigate } from "../../navigators/navigationUtilities"
@@ -59,25 +57,15 @@ const config = DEFAULT_REACTOTRON_CONFIG
  *
  * @param rootStore The root store
  */
-export function setReactotronRootStore(rootStore: RootStore, initialData: any) {
+export function setReactotronRootStore(initialData: any) {
   if (__DEV__) {
-    const { logInitialState, logSnapshots } = config
+    const { logInitialState } = config
     const name = "ROOT STORE"
 
     // logging features
     if (logInitialState) {
       Reactotron.display({ name, value: initialData, preview: "Initial State" })
     }
-
-    // log state changes?
-    if (logSnapshots) {
-      onSnapshot(rootStore, (snapshot) => {
-        Reactotron.display({ name, value: snapshot, preview: "New State" })
-      })
-    }
-
-    // tracks the current MobX-State-Tree tree in Reactotron's "State" tab
-    Reactotron.trackMstNode(rootStore)
   }
 }
 

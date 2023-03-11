@@ -7,8 +7,10 @@ const en = {
   welcomeScreen: {
     postscript:
       "psst  — This probably isn't what your app looks like. (Unless your designer handed you these screens, and in that case, ship it!)",
-    readyForLaunch: "Your app, almost ready for launch!",
-    exciting: "(ohh, this is exciting!)",
+    welcome: "Welcome to SeedSafer",
+    generateButton: "Generate Private Key",
+    seedInputPlaceholder: "Enter your twelve-word recovery seed",
+    accountInfo: "ETH Account Info",
   },
   errorScreen: {
     title: "Something went wrong!",
